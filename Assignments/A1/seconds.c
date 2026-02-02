@@ -7,7 +7,7 @@
  * Ubuntu version: 25.10
  * 
  * Fiona Douglas, January 28th, 2026
- * 
+ * Krishna Chauhan
  * SFWRENG 3SH3, Winter 2026
  
  * Reference:  hello.c Operating System Concepts - 10th Edition
@@ -90,8 +90,7 @@ ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t 
         }
 
         completed = 1;
-        
-        // ****REPLACE FOLLOWING LINE WITH PRINTING NUMBER OF SECONDS***
+
 
         rv = sprintf(buffer, "%lu\n", (jiffies - start_jiffies) / HZ);
 
@@ -107,6 +106,5 @@ module_init( proc_init );
 module_exit( proc_exit );
 
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("Hello Module");
-MODULE_AUTHOR("SGG");
-
+MODULE_DESCRIPTION("Seconds Module");
+MODULE_AUTHOR("Fiona Douglas and Krishna Chauhan");
