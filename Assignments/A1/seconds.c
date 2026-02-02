@@ -24,12 +24,13 @@
 #define BUFFER_SIZE 128
 
 #define PROC_NAME "seconds"
+static unsigned long start_jiffies;
 
 
 /**
  * Function prototypes
  */
-ssize_t proc_read(struct file *file, char *buf, size_t count, loff_t *pos);
+ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t *pos);
 
 
 static const struct proc_ops my_proc_ops = {
@@ -45,7 +46,7 @@ int proc_init(void)
         // the following function call is a wrapper for
         // proc_create_data() passing NULL as the last argument
         proc_create(PROC_NAME, 0, NULL, &my_proc_ops);
-        
+        start_jiffies = jiffies;
         // Prints name of /proc file when loaded
         printk(KERN_INFO "/proc/%s created\n", PROC_NAME);
 
@@ -92,7 +93,7 @@ ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t 
         
         // ****REPLACE FOLLOWING LINE WITH PRINTING NUMBER OF SECONDS***
 
-        rv = sprintf(buffer, "Hello World\n");
+        rv = sprintf(buffer, "%lu\n", (jiffies - start_jiffies) / HZ);
 
         // copies the contents of buffer to userspace usr_buf
         copy_to_user(usr_buf, buffer, rv);
