@@ -31,6 +31,8 @@ static unsigned long start_jiffies;
  * Function prototypes
  */
 ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t *pos);
+int proc_init(void);
+void proc_exit(void);
 
 
 static const struct proc_ops my_proc_ops = {
