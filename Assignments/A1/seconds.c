@@ -14,6 +14,16 @@
  * Copyright John Wiley & Sons - 2018
  */
 
+
+// Couldn't Submit Two files
+// Fiona Douglas:
+// - Created seconds.c file, modified makefile
+// - Renamed /proc file to /proc/seconds
+// - Added comments
+
+// Krishna Chauhan
+// - Dealt with jiffies
+
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
