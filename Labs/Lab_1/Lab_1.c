@@ -21,7 +21,7 @@ static int Lab_1_init(void)
        struct task_struct *task = &init_task; // Get the current task (process)
        printk(KERN_INFO "Process List:\n");
        printk(KERN_INFO "PID: %d\n", task->pid);
-       printk(KERN_INFO "State: %ld\n", task->state);
+       printk(KERN_INFO "State: %ld\n", task->__state);
        printk(KERN_INFO "Flags: %lu\n", task->flags);
        printk(KERN_INFO "rt_priority: %u\n", task->rt_priority);
        printk(KERN_INFO "policy: %u\n", task->policy);
