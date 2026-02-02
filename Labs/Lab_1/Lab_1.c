@@ -26,3 +26,7 @@ static void Lab_1_exit(void)
 
 module_init(Lab_1_init);
 module_exit(Lab_1_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("Simple Module");
+MODULE_AUTHOR("SGG");
