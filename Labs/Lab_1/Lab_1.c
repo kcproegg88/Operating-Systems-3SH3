@@ -3,7 +3,7 @@
 #include <linux/kernel.h>
 #include <linux/sched.h>
 
-static int print_init_pcb(){
+static int print_init_pcb(void){
        struct task_struct *task = &init_task;
        
        printk(KERN_INFO "init_task fields:\n");
@@ -19,7 +19,6 @@ static int print_init_pcb(){
 
 static int Lab_1_init(void)
 {
-    struct task_struct *task = &init_task;
 
     printk(KERN_INFO "Loading Lab_1 Module\n");
     print_init_pcb();
