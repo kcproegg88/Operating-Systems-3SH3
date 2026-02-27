@@ -1,0 +1,19 @@
+/3SH3 Asst 1
+/.devcontainer
+
+# Kernel / module build artifacts
+*.o
+*.ko
+*.mod.c
+*.mod.o
+*.mod
+modules.order
+Module.symvers
+*.symvers
+*.cmd
+
+# Build and editor temporary files
+__MACOSX/
+a.out
+*.swp
+*~
