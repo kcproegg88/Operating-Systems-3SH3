@@ -10,20 +10,21 @@
 
 int page_table[PAGES] = {6, 4, 3, 7, 0, 1, 2, 5};
 
-void readFile(void){
+void Lab_3a(void){
     FILE *file = fopen("labaddr.txt", "r");
     char buffer[BUFFER_SIZE];
     while (fgets(buffer, BUFFER_SIZE, file) != NULL){
-        printf("%s", buffer);
+        // printf("%s", buffer);
         int addr = atoi(buffer);
         int page = addr >> OFFSET_BITS;
         int offset = addr & OFFSET_MASK;
-        printf("Logical Address: %d, Page: %d, Offset: %d\n", addr, page, offset);
+        int physical_addr = (page_table[page] << OFFSET_BITS) | offset;
+        printf("Virtual addr is %d: Page# = %d & Offset = %d. Physical addr = %d\n", addr, page, offset, physical_addr);
     }
     fclose(file);
 }
 
 int main(void){
-    readFile();
+    Lab_3a();
     return 0;
 }
