@@ -3,13 +3,27 @@
 
 #define BUFFER_SIZE 10
 
-int main(void){
+#define OFFSET_MASK 4095
+#define PAGES 8
+#define OFFSET_BITS 12
+#define PAGE_SIZE 4096
+
+int page_table[PAGES] = {6, 4, 3, 7, 0, 1, 2, 5};
+
+void readFile(void){
     FILE *file = fopen("labaddr.txt", "r");
     char buffer[BUFFER_SIZE];
     while (fgets(buffer, BUFFER_SIZE, file) != NULL){
         printf("%s", buffer);
+        int addr = atoi(buffer);
+        int page = addr >> OFFSET_BITS;
+        int offset = addr & OFFSET_MASK;
+        printf("Logical Address: %d, Page: %d, Offset: %d\n", addr, page, offset);
     }
-    printf("Hello, World!\n");
     fclose(file);
+}
+
+int main(void){
+    readFile();
     return 0;
 }
