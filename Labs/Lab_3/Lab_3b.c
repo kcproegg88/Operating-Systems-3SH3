@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #define INT_SIZE 4
 #define INT_COUNT 10
@@ -25,6 +26,7 @@ void Lab_3b(void){
         sum += intArray[i];
     }
     printf("The sum numbers = %d\n", sum);
+    close(mmapfile_fd);
 }
 
 int main(void){
