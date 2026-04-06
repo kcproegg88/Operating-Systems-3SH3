@@ -23,14 +23,18 @@ int main(){
     printFreeBlocks();
 
 
+    printf("\nCreating files...\n");
     createFile("alpha.txt", 3000);
     createFile("beta.txt", 5000);
 
+    printf("\nAfter creation:\n");
     listFiles();
     printFreeBlocks();
 
+    printf("\nDeleting alpha.txt...\n");
     deleteFile("alpha.txt");
 
+    printf("\nAfter deletion:\n");
     listFiles();
     printFreeBlocks();
 
